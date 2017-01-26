@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>jQuery</title> 
+  <link href="jQuery.css" rel="stylesheet" type="text/css"/>
+  
+  <script   src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </script>
+</head> 
+
+<header>
+<h2>Enterprise Java</h2>
+<h1>jQuery Overview</h1>
+</header>
+
+<body>
+<div id="container">
+<div id="info">
+<ul>
+<li><strong>jQuery</strong> is a fast, small, and feature-rich JavaScript library.</li>
+<li>It was designed in 2006 to simplify client-side scripting of HTML.</li>
+<li>Is the most popular JavaScript library in use today, with installation on 65% of the top 10 million highest-trafficked sites on the Web</li>
+<li>Makes it easy to manipulate HTML document, handling events, and working with animation.</li>
+<li>It provides an easy-to-use API that works across a multitude of browsers including older ones.</li>
+<li>There are two ways to include jQuery into your page: <br />
+      You can download it from jquery.com and include the script tag: <br />
+     <strong>&lt; script  src="jquery-3.1.1.min.js"&gt;&lt;/script&gt;</strong> <br />
+     or use a Google or Microsoft-hosted version. <br />
+     you have to include one of these into your HTML:<br />
+     <strong>&lt;script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt;</strong> <br />
+     <strong>&lt;script type = "text/javascript" src = "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"&gt;&lt;/script&gt;</strong>
+ 
+</li>
+<li>jQuery syntax is tailor-made for selecting HTML elements and performing action on the elements.<br />
+    The syntax is: <strong>$("selector").action()</strong>		
+</li>
+<li>jQuery commands have to be enclosed into &lt;script&gt; element if you are not using HTML5</li>
+
+</ul>
+</div> 
+<table id="methods1">
+  <tr>
+    <td id="header">jQuery Selectors <br />
+        Used to select and manipulate HTML elements.<br />
+        The format is $("selector")
+    </td>
+    <td id= "header">jQuery Events <br />
+        Define various user's actions that a web page <br />
+        can respond to. <br />
+        The format is $("selector").event();
+    </td> 
+  </tr>
+  <tr>
+    <td>jQuery uses CSS syntax to select elements. <br />
+        $("p")     - selects all &lt;p&gt; elements <br />
+        $("#test") - selects by id <br />
+        $(".test") - selects by class <br />
+        $("*")     - selects all elements <br />
+        <a href="http://www.w3schools.com/jquery/jquery_ref_selectors.asp">Selectors Reference page</a>
+    </td>    
+    <td id="toHover">
+        $(document).ready() <br />
+        click() <br />
+        dblclick() <br />
+        mouseenter() <br />
+        mouseleave() <br />
+        mousedown() <br />
+        mouseup() <br />
+        hover() <br />
+        focus() and blur() 
+    </td> 
+  </tr>
+  </table>
+  <script>
+  $(document).ready(function(){
+     $("#toHover").hover(function(){ $(this).css("background-color", "#cccccc");
+     });
+  });
+  </script>
+   
+   <table id="methods2">
+    <tr >
+    <td id="header1" colspan="3">jQuery Effects</td>
+  </tr>
+  <tr>
+    <td id="effects">hide() <br />
+        show() <br />
+        toggle() 
+       <p id="toHide">Click me and <br /> I will disapear</p>
+    </td>
+    
+    <td id="toFade">fadeIn() <br />
+        fadeOut() <br />
+        fadeToggle() <br />
+        fadeTo()<br />
+        <button id="fade_button">Click to fade the list above</button>
+    </td>
+    <td id="effects">animate() <br />
+        <button id="toAnimate">Click to move me</button>  
+    </td>
+   </tr>
+   </table>
+   <script>
+   $(document).ready(function(){
+     $("#toHide").click(function(){$(this).hide();});
+   });
+   </script>
+   <script>
+   $(document).ready(function(){
+     $("#fade_button").click(function(){$("#toFade").fadeOut("slow");});
+   });
+   </script>
+
+   <table id="methods1">
+   <tr><td colspan="3" id="header1">jQuery HTML</td></tr>
+   <tr>
+    <td id="header2">Get/Set Content and Attributes</td>
+    <td id="header3">Add Elements/Content</td>
+    <td id="header4">Remove Elements/Content</td>
+  </tr>
+  <tr>
+    <td id="effects">text() <br />
+        html()<br />
+        val() <br />
+        attr() <br />
+        <p id="toCopy">Text to copy</p>
+        <button id="copy_button">Click to display text</button>
+    </td>
+     <td id="toAppend">append() <br />
+        prepend()<br />
+        after() <br />
+        <button id="append_button">Click to append text</button>
+    </td>
+    <td id="effects">remove() <br />
+        empty() <br />
+        <button id="remove_button">Click to remove text</button>
+    </td>
+  </tr>
+  <script>
+  $(document).ready(function(){
+     $("#toAnimate").click(function(){$(this).animate({right: '30px'});});
+  });
+  </script>
+  <script>
+  $(document).ready(function(){
+     $("#copy_button").click(function(){
+        alert("Text: " + $("#toCopy").text());});
+  });
+  </script>
+
+  <script>
+  $(document).ready(function(){
+      $("#append_button").click(function(){
+        $("#toAppend").append("<span id=\"new_text\">New text</span>");});
+  });
+  </script>
+  <script>
+  $(document).ready(function(){
+     $("#remove_button").click(function(){$("#new_text").remove();});
+  });
+  </script>
+</table> 
+</div>
+
+<table id="methods3">
+<tr>
+  <td id="header1">jQuery Traversing <br />
+      Allows processing to move through document tree until the desired element is located.
+  </td>
+  <td id="header1">jQuery AJAX <br />
+      AJAX = Asynchronous JavaScript and XML.
+  </td>
+</tr>
+<tr>
+  <td>parent() <br />
+      parents() <br />
+      parentsUntil() <br />
+      children() <br />
+      find() <br />
+  </td>
+  <td>load() <br />
+      $.get() <br />
+      $.post()  
+  </td>
+</tr>
+</table>
+<div id="info">
+<ul>
+  <li>To store jQuery script in a separate file include: <br /> &lt;script    
+      src="my_jquery_functions.js"&gt; to reference the file (my_jquery_functions.js).</script>
+  </li>
+  <li><strong>jQuery</strong> is a framework that is easy to understand and use    
+      by even novice developers.
+  </li>
+  <li>With jQuery you do not have to think much about the DOM, or browser bugs,   
+      or cross-browser behaviours. jQuery solves all of these for you.
+  </li>
+</div>
+
+
+</body>
+
+</html> 
+
